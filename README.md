@@ -26,7 +26,7 @@ EcoSage is a smart platform that helps you track eco-friendly habits and purchas
 
 ### 🚀 See EcoSage in Action
 Experience sustainable living firsthand!   
-[🛍️ EcoSage](https://my-eco-sage-project.vercel.app/)
+[🛍️ EcoSage-Live Demo](https://my-eco-sage-project.vercel.app/)
 
 ### 🛠️ Prerequisites
 
