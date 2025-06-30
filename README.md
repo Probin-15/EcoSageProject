@@ -1,4 +1,4 @@
-🌍🛍️ EcoSage: Shop Smarter, Live Greener ♻️✨
+**🌍🛍️ EcoSage: Shop Smarter, Live Greener ♻️✨**
 Empower your sustainable journey with EcoSage, your intelligent partner for mindful consumption and a planet-first lifestyle. Discover eco-friendly alternatives, track your positive impact, and embrace a greener future!
 
 🌿 About EcoSage
