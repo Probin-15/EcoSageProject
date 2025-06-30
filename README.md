@@ -1,10 +1,10 @@
-#**🌍🛍️ EcoSage: Shop Smarter, Live Greener ♻️✨**
+ # **🌍🛍️ EcoSage: Shop Smarter, Live Greener ♻️✨**
 Empower your sustainable journey with EcoSage, your intelligent partner for mindful consumption and a planet-first lifestyle. Discover eco-friendly alternatives, track your positive impact, and embrace a greener future!
 
-##🌿 About EcoSage
+ ## 🌿 About EcoSage
 EcoSage is a smart platform that helps you track eco-friendly habits and purchases, offering personalized reminders and insights. Blending sleek design, AI assistance, and interactive maps, it connects technology with eco-consciousness for a better future.
 
-##✨ Core Features
+### ✨ Core Features
 🔐 Secure Login: Easy and safe access with Clerk.  
 📅 Eco Calendar: Track purchases and important dates.  
 📍 Smart Location: Discover green spots using Geoapify.  
@@ -14,7 +14,7 @@ EcoSage is a smart platform that helps you track eco-friendly habits and purchas
 📬 Eco Reminders: Timely email nudges for your eco-goals.  
 💡 Responsive Design: Seamless experience across all devices with Tailwind CSS.  
 
-####🛠️ Tech Stack:
+🛠️ Tech Stack:
 
 ⚛️ Next.js: Frontend & Backend.     
 🎨 Tailwind CSS: Styling.  
@@ -24,7 +24,7 @@ EcoSage is a smart platform that helps you track eco-friendly habits and purchas
 🗺️ OpenStreetMap: Map Rendering.  
 🚀 Vercel: Deployment.  
 
-###🚀 See EcoSage in Action
+### 🚀 See EcoSage in Action
 Experience sustainable living firsthand! Check out our live demo: https://my-eco-sage-project.vercel.app/ 
 
 ### 🛠️ Prerequisites
