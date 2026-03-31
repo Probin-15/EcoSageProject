@@ -203,7 +203,7 @@ export default function AIAssistantPage() {
               <div className="text-center" key={i}>
                 <div
                   className={`w-16 h-16 ${
-                    ["bg-forest-500", "bg-sage-500", "bg-sandy-500"][i]
+                    ["bg-red-500", "bg-red-500", "bg-red-500"][i]
                   } text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-xl font-bold`}
                 >
                   {i + 1}

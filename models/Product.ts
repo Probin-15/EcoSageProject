@@ -1,23 +1,60 @@
-import mongoose from "mongoose";
+import mongoose, { Schema, models } from "mongoose";
 
-const productSchema = new mongoose.Schema({
-  name: String,
-  description: String,
-  price: Number,
-  category: String,
-  image: String,
-  inStock: Boolean,
-  ecoScore: Number,
-  brand: String,
-  tags: [String],
-});
+const ProductSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    description: {
+      type: String,
+      default: "",
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    category: {
+      type: String,
+      default: "general",
+    },
+    image: {
+      type: String,
+      default: "",
+    },
+    inStock: {
+      type: Boolean,
+      default: true,
+    },
+    ecoScore: {
+      type: Number,
+      default: 0,
+    },
+    brand: {
+      type: String,
+      default: "Unknown",
+    },
+    tags: {
+      type: [String],
+      default: [],
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-// ✅ Fixed typo: applied index to correct schema variable
-productSchema.index({
+// ✅ Full-text search index
+ProductSchema.index({
   name: "text",
   description: "text",
   tags: "text",
   category: "text",
 });
 
-export default mongoose.models.Product || mongoose.model("Product", productSchema);
+// ✅ Prevent model overwrite error (VERY IMPORTANT in Next.js)
+const Product =
+  models.Product || mongoose.model("Product", ProductSchema);
+
+export default Product;

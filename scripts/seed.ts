@@ -1,6 +1,12 @@
 import dotenv from "dotenv";
-dotenv.config();
+import path from "path";
 
+// FORCE load .env.local
+dotenv.config({
+  path: path.resolve(process.cwd(), ".env.local"),
+});
+
+console.log("Loaded URI:", process.env.MONGODB_URI);
 import { connectToDatabase } from "../lib/db";
 import Product from "../models/Product";
 

@@ -1,4 +1,4 @@
-import { connectToDatabase } from "@/lib/db";
+import { connectToDatabase } from "@/lib/db"; // keep this if your file is db.ts
 import Product from "@/models/Product";
 import { NextResponse } from "next/server";
 
@@ -6,30 +6,25 @@ export async function GET(req: Request) {
   try {
     await connectToDatabase();
 
-    // Get search query from URL
     const { searchParams } = new URL(req.url);
-    const q = searchParams.get("q")?.toLowerCase() || "";
+    const q = searchParams.get("q") || "";
 
-    // Fetch and filter products
-    const products = await Product.find();
+    let query: any = {};
 
-    // Filter only matching products by name, description, brand, or tags
-    const filteredProducts = products.filter((product) => {
-      const name = product.name?.toLowerCase() || "";
-      const desc = product.description?.toLowerCase() || "";
-      const brand = product.brand?.toLowerCase() || "";
-      const tags = (product.tags || []).map((t) => t.toLowerCase()).join(" ");
+    if (q) {
+      query = {
+        $or: [
+          { name: { $regex: q, $options: "i" } },
+          { description: { $regex: q, $options: "i" } },
+          { brand: { $regex: q, $options: "i" } },
+          { tags: { $regex: q, $options: "i" } },
+        ],
+      };
+    }
 
-      return (
-        name.includes(q) ||
-        desc.includes(q) ||
-        brand.includes(q) ||
-        tags.includes(q)
-      );
-    });
+    const products = await Product.find(query).lean();
 
-    // Convert for frontend
-    const formattedProducts = filteredProducts.map((product) => ({
+    const formattedProducts = products.map((product: any) => ({
       id: product._id.toString(),
       name: product.name,
       description: product.description,
@@ -43,10 +38,14 @@ export async function GET(req: Request) {
     }));
 
     return NextResponse.json(formattedProducts);
-  } catch (error) {
-    console.error("Fetch Error:", error);
+  } catch (error: any) {
+    console.error("❌ REAL ERROR:", error);
+
     return NextResponse.json(
-      { error: "Failed to load products" },
+      {
+        error: error?.message,
+        stack: error?.stack,
+      },
       { status: 500 }
     );
   }
